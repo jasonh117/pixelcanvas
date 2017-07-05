@@ -1,0 +1,6 @@
+{
+  "routes": [
+    {"url": "/", "file": "routes/index"},
+    {"url": "/user", "file": "routes/users"}
+  ]
+}
