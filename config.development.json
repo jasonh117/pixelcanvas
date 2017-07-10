@@ -1,6 +1,23 @@
 {
   "routes": [
     {"url": "/", "file": "routes/index"},
-    {"url": "/user", "file": "routes/users"}
-  ]
+    {"url": "/canvas", "file": "routes/canvas"}
+  ],
+  "postgres": {
+    "database": "pixelcanvasdev",
+    "username": "pixelcanvasdev",
+    "password": "pixelcanvasdev",
+    "options": {
+      "dialect": "postgres",
+      "dialectOptions": {
+        "multipleStatements": true
+      },
+      "host": "localhost",
+      "port": 5432,
+      "pool": {
+        "max": 10,
+        "min": 0
+      }
+    }
+  }
 }

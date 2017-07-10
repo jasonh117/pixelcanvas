@@ -6,8 +6,35 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const nconf = require('nconf');
 const winston = require('winston');
+const cors = require('cors');
+const http = require('http');
+const WebSocket = require('uws');
 
 const app = express();
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
+// Broadcast to all.
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(data);
+    }
+  });
+};
+
+const onMessage = (message) => {
+  wss.broadcast(message);
+};
+
+wss.on('connection', (ws) => {
+  ws.on('message', onMessage);
+});
+
+server.listen(8080, () => {
+  console.log(`Listening on ${server.address().port}`);
+});
 
 const env = (process.env.NODE_ENV !== undefined) ? process.env.NODE_ENV.trim() : 'development';
 
@@ -21,6 +48,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
