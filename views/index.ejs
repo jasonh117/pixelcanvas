@@ -4,15 +4,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Pixel Canvas</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
 <body>
-  <input id="colorpicker" />
-  <div id="container" />
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Pixel Canvas</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <% if (typeof user === 'undefined') { %>
+          <form id="login-form" class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+          <div id="navbar-username" class="navbar-text navbar-right hide"></div>
+        <% } else { %>
+          <div id="navbar-username" class="navbar-text navbar-right">Welcome, <%= user.username %></div>
+        <% } %>
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <div id="sidebar">
+    <input id="colorpicker" />
+    <div id="timer"></div>
+  </div>
+  <div id="container"></div>
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
+  <script src="javascripts/timer.min.js"></script>
   <script src="javascripts/index.js"></script>
 </body>
 

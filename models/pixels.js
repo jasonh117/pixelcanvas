@@ -1,7 +1,7 @@
 const tableName = 'pixels';
 
 module.exports = (sequelize, DataTypes) => {
-  const Canvas = sequelize.define(tableName, {
+  const Pixel = sequelize.define(tableName, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -20,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: DataTypes.DATE,
   });
 
-  return Canvas;
+  return Pixel;
 };

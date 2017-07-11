@@ -1,4 +1,4 @@
-const tableName = 'pixels';
+const tableName = 'users';
 
 module.exports = {
   up: (queryInterface, Sequelize) =>
@@ -9,14 +9,14 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
-        x: {
-          type: Sequelize.INTEGER,
-        },
-        y: {
-          type: Sequelize.INTEGER,
-        },
-        color: {
+        username: {
           type: Sequelize.STRING,
+        },
+        email: {
+          type: Sequelize.STRING,
+        },
+        password: {
+          type: Sequelize.STRING(72),
         },
         createdAt: {
           type: Sequelize.DATE,
@@ -25,8 +25,9 @@ module.exports = {
           type: Sequelize.DATE,
         },
       },
-    ),
-      // .then(() => queryInterface.addIndex(tableName, ['x', 'y'], { indexName: 'pixels_xy', indicesType: 'UNIQUE' })),
+    )
+      .then(() => queryInterface.addIndex(tableName, ['email'], { indexName: 'u_email', indicesType: 'UNIQUE' }))
+      .then(() => queryInterface.addIndex(tableName, ['username'], { indexName: 'u_username', indicesType: 'UNIQUE' })),
   down: queryInterface =>
     queryInterface.dropTable(tableName, { cascade: true, truncate: true }),
 };

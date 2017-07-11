@@ -1,7 +1,8 @@
 {
   "routes": [
     {"url": "/", "file": "routes/index"},
-    {"url": "/canvas", "file": "routes/canvas"}
+    {"url": "/canvas", "file": "routes/canvas"},
+    {"url": "/user", "file": "routes/user"}
   ],
   "postgres": {
     "database": "pixelcanvasdev",
@@ -19,5 +20,17 @@
         "min": 0
       }
     }
+  },
+  "cookieConfig": {
+    "name": "jwt",
+    "options": {
+      "maxAge": 86400000
+    }
+  },
+  "jwt": {
+    "secret": "5e3037795d442693c9f7bdf2b82b79ba54c3d5b4de1fde9af55bf86f3c2be11d",
+    "issuer": "pixelCanvas",
+    "audience": "pixelCanvasClient",
+    "expiresIn": 86400
   }
 }
