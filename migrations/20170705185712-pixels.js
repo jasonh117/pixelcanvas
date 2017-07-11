@@ -24,9 +24,7 @@ module.exports = {
         updatedAt: {
           type: Sequelize.DATE,
         },
-      },
-    ),
-      // .then(() => queryInterface.addIndex(tableName, ['x', 'y'], { indexName: 'pixels_xy', indicesType: 'UNIQUE' })),
+      }),
   down: queryInterface =>
     queryInterface.dropTable(tableName, { cascade: true, truncate: true }),
 };

@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "pixelcanvasdev",
-    "password": "pixelcanvasdev",
-    "database": "pixelcanvasdev",
+    "username": "pixel",
+    "password": "pixel",
+    "database": "pixel",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

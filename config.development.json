@@ -5,9 +5,9 @@
     {"url": "/user", "file": "routes/user"}
   ],
   "postgres": {
-    "database": "pixelcanvasdev",
-    "username": "pixelcanvasdev",
-    "password": "pixelcanvasdev",
+    "database": "pixel",
+    "username": "pixel",
+    "password": "pixel",
     "options": {
       "dialect": "postgres",
       "dialectOptions": {

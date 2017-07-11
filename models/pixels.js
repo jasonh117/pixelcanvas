@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     color: {
       type: DataTypes.STRING,
     },
+    userid: {
+      type: DataTypes.INTEGER,
+    },
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
   });

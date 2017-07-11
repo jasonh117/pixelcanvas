@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   postgresConfig.database,
   postgresConfig.username,
   postgresConfig.password,
-  postgresConfig.options,
+  postgresConfig.options
 );
 
 const db = {

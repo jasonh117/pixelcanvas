@@ -3,7 +3,7 @@ const height = 100;
 let color = '#000';
 const ws = new WebSocket('ws://localhost:8080/');
 let allow = true;
-const COOLDOWNTIME = 10;
+const COOLDOWNTIME = 1;
 const PIXELANIMATIONTIME = 5000;
 const colors = ['#ffffff', '#d3d3d3', '#a9a9a9', '#000000', '#ffc0cb', '#ff0000', '#ffa500', '#a52a2a', '#ffff00', '#90ee90', '#008000', '#add8e6', '#00008b', '#0000ff', '#EE82EE', '#800080'];
 
@@ -73,10 +73,10 @@ $(() => {
     //   color: colors[Math.floor(Math.random() * colors.length)],
     // };
 
-    ws.send(JSON.stringify(data));
+    // ws.send(JSON.stringify(data));
     timer.start(COOLDOWNTIME);
     $.ajax({
-      url: 'http://localhost:3000/canvas',
+      url: '/canvas',
       data,
       type: 'POST',
     })

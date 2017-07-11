@@ -24,7 +24,7 @@ module.exports = {
         updatedAt: {
           type: Sequelize.DATE,
         },
-      },
+      }
     )
       .then(() => queryInterface.addIndex(tableName, ['email'], { indexName: 'u_email', indicesType: 'UNIQUE' }))
       .then(() => queryInterface.addIndex(tableName, ['username'], { indexName: 'u_username', indicesType: 'UNIQUE' })),
